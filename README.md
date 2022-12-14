@@ -1,5 +1,5 @@
 # Learning Arena
-This repository is for learning and storing code and information related with anything. For example data structures, algorithms, C++, Python etc.
+My learning notes for everything from data structures, algorithms to languages like C / C++ and Python.
 
 ## References
 * Concrete Mathematics: A Foundation for Computer Science by Donald E. Knuth.
