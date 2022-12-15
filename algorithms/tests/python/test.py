@@ -13,14 +13,14 @@ def get_random_list(n, r):
 
 def test_sort():
     load_modules()
-    n = int(1e6)
+    n = int(2e4)
     r = int(1e9)
 
     v = get_random_list(n, r)    
     import bubble
     start_time = time.time()
     v = bubble.sort(v)
-    print(f'bubble sort execution time == {time.time() - start} seconds')
+    print(f'bubble sort execution time == {time.time() - start_time} seconds')
     
 if __name__ == '__main__':
     test_sort()
