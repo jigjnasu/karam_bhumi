@@ -7,7 +7,6 @@ def merge_sort(v, start, end):
         merge_sort(v, start, mid)
         merge_sort(v, mid + 1, end)
         merge(v, start, mid, end)
-    return v
         
 def merge(v, start, mid, end):
     left = []

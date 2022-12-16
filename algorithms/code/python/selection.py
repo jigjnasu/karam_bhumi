@@ -5,4 +5,3 @@ def sort(v):
             if v[j] < v[min_index]:
                 min_index = j
         v[i], v[min_index] = v[min_index], v[i]
-    return v
