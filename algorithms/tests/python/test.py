@@ -32,6 +32,13 @@ def test_selection_sort(v, v_sorted):
     assert v == v_sorted
     print(f'selection sort execution time == {time.time() - start_time} seconds')
 
+def test_merge_sort(v, v_sorted):
+    import merge
+    start_time = time.time()
+    v = merge.sort(v)
+    assert v == v_sorted
+    print(f'merge sort execution time     == {time.time() - start_time} seconds')
+
 def test_sort():    
     n = int(2e4)
     r = int(1e9)
@@ -42,7 +49,8 @@ def test_sort():
     test_bubble_sort(v, v_sorted)
     test_insertion_sort(v, v_sorted)
     test_selection_sort(v, v_sorted)
-    
+    test_merge_sort(v, v_sorted)
+
 if __name__ == '__main__':
     load_modules()
     test_sort()
