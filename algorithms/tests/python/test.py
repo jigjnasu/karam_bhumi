@@ -3,7 +3,7 @@ import time
 import random
 
 def load_modules():
-    sys.path.insert(0, '/home/shishya/git_hub/learning_arena/algorithms/code/python')
+    sys.path.insert(0, '../../code/python/')
 
 def get_random_list(n, r):
     v = []
