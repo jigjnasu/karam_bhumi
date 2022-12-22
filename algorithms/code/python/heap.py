@@ -1,43 +1,33 @@
-# def sort(v):
-#     build_maxify(v)
+import random
 
-# def build_maxify(v):
-#     for i in range(len(v) >> 1, -1):
-#         maxify(v, i)
+def sort(v):
+    n = len(v)
+    build_heap(v, n)
+    for i in range(n - 1, 0, -1):
+        v[0],v[i] = v[i], v[0]
+        max_heapify(v, i, 0)
 
-# def maxify(v, i):
-#     while True:
-#         l = left(i)
-#         r = right(i)
-#         largest = i
-#         if l < len(v) and v[l] > v[largest]:
-#             largest = l
-#         if r < len(v) and v[r] > v[largest]:
-#             largest = r
-#         if i == largest:
-#             break
-#         v[i], v[largest] = v[largest], v[i]
-#         i = largest
+def build_heap(v, n):
+    for i in range(n >> 1, -1, -1):
+        max_heapify(v, n, i)
+
+def max_heapify(v, n, index):
+    while True:
+        largest = index
+        l = left(index)
+        r = right(index)
         
-# def left(i):
-#     return (i << 1) + 1
+        if l < n and v[l] > v[largest]:
+            largest = l
+        if r < n and v[r] > v[largest]:
+            largest = r
+        if largest == index:
+            break
+        v[index], v[largest] = v[largest], v[index]
+        index = largest
 
-# def right(i):
-#     return (i << 1) + 2
+def left(index):
+    return (index << 1) + 1
 
-# if __name__ == '__main__':
-#     import random
-#     v = []
-#     for _ in range(20):
-#         v.append(random.randint(1, 50))
-#     print(v)
-#     sort(v)
-#     print(v)
-
-def test(v):
-    v[0],v[1] = v[1], v[0]
-    
-v = [1, 2]
-print(v)
-test(v)
-print(v)
+def right(index):
+    return (index << 1) + 2

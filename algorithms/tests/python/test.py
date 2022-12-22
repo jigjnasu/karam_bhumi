@@ -38,6 +38,13 @@ def test_merge_sort(v, v_sorted):
     merge.sort(v)
     assert v == v_sorted
     print(f'merge sort execution time     == {time.time() - start_time} seconds')
+    
+def test_heap_sort(v, v_sorted):
+    import heap
+    start_time = time.time()
+    heap.sort(v)
+    assert v == v_sorted
+    print(f'heap sort execution time      == {time.time() - start_time} seconds')
 
 def test_sort():    
     n = int(2e4)
@@ -58,6 +65,9 @@ def test_sort():
     
     v4 = v
     test_merge_sort(v4, v_sorted)
+    
+    v5 = v
+    test_heap_sort(v5, v_sorted)
 
 if __name__ == '__main__':
     load_modules()
