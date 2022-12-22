@@ -1,5 +1,3 @@
-import random
-
 def sort(v):
     n = len(v)
     build_heap(v, n)

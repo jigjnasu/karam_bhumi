@@ -45,6 +45,13 @@ def test_heap_sort(v, v_sorted):
     heap.sort(v)
     assert v == v_sorted
     print(f'heap sort execution time      == {time.time() - start_time} seconds')
+    
+def test_quick_sort(v, v_sorted):
+    import quick
+    start_time = time.time()
+    quick.sort(v)
+    assert v == v_sorted
+    print(f'quick sort execution time     == {time.time() - start_time} seconds')
 
 def test_sort():    
     n = int(2e4)
@@ -68,6 +75,9 @@ def test_sort():
     
     v5 = v
     test_heap_sort(v5, v_sorted)
+
+    v6 = v
+    test_quick_sort(v6, v_sorted)
 
 if __name__ == '__main__':
     load_modules()
