@@ -1,20 +1,23 @@
 import random
 
 def sort(v):
-    quick_sort(v, 0, len(v) - 1)
+    quick_sort(v, 0, len(v) - 1) 
 
-def quick_sort(v, low, high):
-    if low < high:
-        q = partition(v, low, high)
-        quick_sort(v, low, q - 1)
-        quick_sort(v, q + 1, high)
-        
 def partition(v, low, high):
-    pivot = v[random.randint(low, high)]
+    index = random.randint(low, high)
+    pivot = v[index]
     i = low - 1
+ 
     for j in range(low, high):
         if v[j] <= pivot:
-            i += 1
-            v[i], v[j] = v[j], v[i]
-    v[high], v[i + 1] = v[i + 1], v[high]
+            i = i + 1
+            (v[i], v[j]) = (v[j], v[i])
+    (v[i + 1], v[index]) = (v[index], v[i + 1])
     return i + 1
+ 
+def quick_sort(v, low, high):
+    if low < high:
+        pi = partition(v, low, high)
+        quick_sort(v, low, pi - 1)
+        quick_sort(v, pi + 1, high)
+    

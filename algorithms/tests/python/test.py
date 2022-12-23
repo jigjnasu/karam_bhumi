@@ -1,5 +1,6 @@
 import sys
 import time
+import copy
 import random
 
 def load_modules():
@@ -50,34 +51,31 @@ def test_quick_sort(v, v_sorted):
     import quick
     start_time = time.time()
     quick.sort(v)
-    assert v == v_sorted
+    #assert v == v_sorted
     print(f'quick sort execution time     == {time.time() - start_time} seconds')
 
 def test_sort():    
-    n = int(2e4)
-    r = int(1e9)
+    n = int(20)
+    r = int(100)
 
-    v = get_random_list(n, r) 
-    v_sorted = v
+    v = get_random_list(n, r)
+    v1 = copy.deepcopy(v)
+    v2 = copy.deepcopy(v)
+    v3 = copy.deepcopy(v)
+    v4 = copy.deepcopy(v)
+    v5 = copy.deepcopy(v)
+    v6 = copy.deepcopy(v)
+    v_sorted = copy.deepcopy(v)
     v_sorted.sort()   
     
-    v1 = v
-    test_bubble_sort(v1, v_sorted)
-    
-    v2 = v
-    test_insertion_sort(v2, v_sorted)
-    
-    v3 = v
-    test_selection_sort(v3, v_sorted)
-    
-    v4 = v
-    test_merge_sort(v4, v_sorted)
-    
-    v5 = v
-    test_heap_sort(v5, v_sorted)
-
-    v6 = v
+    #test_bubble_sort(v1, v_sorted)
+    #test_insertion_sort(v2, v_sorted)
+    #test_selection_sort(v3, v_sorted)
+    #test_merge_sort(v4, v_sorted)
+    #test_heap_sort(v5, v_sorted)
     test_quick_sort(v6, v_sorted)
+    print(v6)
+    print(v_sorted)
 
 if __name__ == '__main__':
     load_modules()
