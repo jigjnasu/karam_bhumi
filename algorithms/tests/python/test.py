@@ -51,12 +51,12 @@ def test_quick_sort(v, v_sorted):
     import quick
     start_time = time.time()
     quick.sort(v)
-    #assert v == v_sorted
+    assert v == v_sorted
     print(f'quick sort execution time     == {time.time() - start_time} seconds')
 
 def test_sort():    
-    n = int(20)
-    r = int(100)
+    n = int(2e4)
+    r = int(1e9)
 
     v = get_random_list(n, r)
     v1 = copy.deepcopy(v)
@@ -68,14 +68,12 @@ def test_sort():
     v_sorted = copy.deepcopy(v)
     v_sorted.sort()   
     
-    #test_bubble_sort(v1, v_sorted)
-    #test_insertion_sort(v2, v_sorted)
-    #test_selection_sort(v3, v_sorted)
-    #test_merge_sort(v4, v_sorted)
-    #test_heap_sort(v5, v_sorted)
+    test_bubble_sort(v1, v_sorted)
+    test_insertion_sort(v2, v_sorted)
+    test_selection_sort(v3, v_sorted)
+    test_merge_sort(v4, v_sorted)
+    test_heap_sort(v5, v_sorted)
     test_quick_sort(v6, v_sorted)
-    print(v6)
-    print(v_sorted)
 
 if __name__ == '__main__':
     load_modules()
