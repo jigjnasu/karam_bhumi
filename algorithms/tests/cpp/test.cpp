@@ -1,5 +1,6 @@
 #include "../../code/cpp/bubble.h"
 #include "../../code/cpp/insertion.h"
+#include "../../code/cpp/selection.h"
 
 #include <random>
 #include <chrono>
@@ -40,7 +41,7 @@ void test_bubble_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
     auto start = std::chrono::high_resolution_clock::now();
     b.sort(v);
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
-    std::cout << "bubble sort execution time    == " << duration.count() / 1e9 << " seconds" << std::endl;
+    std::cout << "bubble sort    == " << duration.count() / 1e9 << " seconds" << std::endl;
     assert_array(v, v_sorted);
 }
 
@@ -49,7 +50,16 @@ void test_insertion_sort(std::vector<int>& v, const std::vector<int> &v_sorted) 
     auto start = std::chrono::high_resolution_clock::now();
     i.sort(v);
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
-    std::cout << "insertion sort execution time == " << duration.count() / 1e9 << " seconds" << std::endl;
+    std::cout << "insertion sort == " << duration.count() / 1e9 << " seconds" << std::endl;
+    assert_array(v, v_sorted);
+}
+
+void test_selection_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
+    Selection s;
+    auto start = std::chrono::high_resolution_clock::now();
+    s.sort(v);
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
+    std::cout << "selection sort == " << duration.count() / 1e9 << " seconds" << std::endl;
     assert_array(v, v_sorted);
 }
 
@@ -59,11 +69,17 @@ int main() {
     std::vector<int> v_sorted = v;
     std::sort(v_sorted.begin(), v_sorted.end());
 
+    std::cout << "---------------------------------------------------------------------------" << std::endl;
     std::vector<int> v1 = v;
     test_bubble_sort(v1, v_sorted);
 
     std::vector<int> v2 = v;
     test_insertion_sort(v2, v_sorted);
+
+    std::vector<int> v3 = v;
+    test_selection_sort(v3, v_sorted);
+
+    std::cout << "---------------------------------------------------------------------------" << std::endl;
 
     return 0;
 }
