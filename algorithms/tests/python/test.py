@@ -9,7 +9,7 @@ def load_modules():
 def get_random_list(n, r):
     v = []
     for i in range(n):
-        v.append(random.randint(0, r))
+        v.append(random.randint(-r, r))
     return v
 
 def test_bubble_sort(v, v_sorted):

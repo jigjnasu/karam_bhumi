@@ -16,7 +16,7 @@ int random(int s, int e) {
 std::vector<int> get_random_vector(int n) {
     std::vector<int> v;
     for (int i = 0; i < n; ++i)
-        v.emplace_back(random(1, 1e9));
+        v.emplace_back(random(-1e9, 1e9));
     return v;
 }
 
