@@ -1,6 +1,7 @@
 #include "../../code/cpp/bubble.h"
 #include "../../code/cpp/insertion.h"
 #include "../../code/cpp/selection.h"
+#include "../../code/cpp/merge.h"
 
 #include <random>
 #include <chrono>
@@ -63,6 +64,15 @@ void test_selection_sort(std::vector<int>& v, const std::vector<int> &v_sorted) 
     assert_array(v, v_sorted);
 }
 
+void test_merge_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
+    Selection s;
+    auto start = std::chrono::high_resolution_clock::now();
+    s.sort(v);
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
+    std::cout << "merge sort     == " << duration.count() / 1e9 << " seconds" << std::endl;
+    assert_array(v, v_sorted);
+}
+
 int main() {
     const int n = 1e5;
     std::vector<int> v = get_random_vector(n);
@@ -78,6 +88,9 @@ int main() {
 
     std::vector<int> v3 = v;
     test_selection_sort(v3, v_sorted);
+
+    std::vector<int> v4 = v;
+    test_merge_sort(v4, v_sorted);
 
     std::cout << "---------------------------------------------------------------------------" << std::endl;
 

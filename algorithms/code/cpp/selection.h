@@ -16,6 +16,7 @@ public:
                 swap(v[i], v[min_index]);
         }
     }
+
 private:
     void swap(int &a, int &b) {
         a ^= b;

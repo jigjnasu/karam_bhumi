@@ -11,6 +11,7 @@ public:
                 if (v[j] < v[i])
                     swap(v[i], v[j]);
     }
+
 private:
     void swap(int &a, int &b) {
         a ^= b;
