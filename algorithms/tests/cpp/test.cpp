@@ -1,4 +1,5 @@
 #include "../../code/cpp/bubble.h"
+#include "../../code/cpp/insertion.h"
 
 #include <random>
 #include <chrono>
@@ -20,6 +21,14 @@ std::vector<int> get_random_vector(int n) {
     return v;
 }
 
+void print(const std::vector<int> &v) {
+    std::cout << "---------------------------------------------------------------" << std::endl;
+    for (auto e : v)
+        std::cout << e << " ";
+    std::cout << std::endl;
+    std::cout << "---------------------------------------------------------------" << std::endl;
+}
+
 void assert_array(const std::vector<int> &v1, const std::vector<int> &v2) {
     assert(v1.size() == v2.size());
     for (std::size_t i = 0; i < v1.size(); ++i)
@@ -31,7 +40,16 @@ void test_bubble_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
     auto start = std::chrono::high_resolution_clock::now();
     b.sort(v);
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
-    std::cout << "bubble sort execution time == " << duration.count() / 1e9 << " seconds" << std::endl;
+    std::cout << "bubble sort execution time    == " << duration.count() / 1e9 << " seconds" << std::endl;
+    assert_array(v, v_sorted);
+}
+
+void test_insertion_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
+    Insertion i;
+    auto start = std::chrono::high_resolution_clock::now();
+    i.sort(v);
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
+    std::cout << "insertion sort execution time == " << duration.count() / 1e9 << " seconds" << std::endl;
     assert_array(v, v_sorted);
 }
 
@@ -43,6 +61,9 @@ int main() {
 
     std::vector<int> v1 = v;
     test_bubble_sort(v1, v_sorted);
-   
+
+    std::vector<int> v2 = v;
+    test_insertion_sort(v2, v_sorted);
+
     return 0;
 }
