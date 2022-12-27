@@ -21,18 +21,16 @@ private:
 
     int partition(std::vector<int> &v, int low, int high) {
         const int index = random(low, high - 1);
-        swap(v[index], v[high]);
+        std::swap(v[index], v[high]);
 
         int i = low - 1;
         for (int j = low; j < high; ++j) {
             if (v[j] <= v[high]) {
                 ++i;
-                if (i != j)
-                    swap(v[i], v[j]);
+                std::swap(v[i], v[j]);
             }
         }
-        if (high != i + 1)
-            swap(v[high], v[i + 1]);
+        std::swap(v[high], v[i + 1]);
         return i + 1;
     }
 
@@ -41,12 +39,6 @@ private:
         std::mt19937 mt(rd());
         std::uniform_int_distribution<int> dist(s, e);
         return dist(mt);
-    }
-
-    void swap(int &a, int &b) {
-        a ^= b;
-        b ^= a;
-        a ^= b;
     }
 };
 #endif // LEARNING_AREA_ALGORITHMS_CODE_CPP_QUICK_H_

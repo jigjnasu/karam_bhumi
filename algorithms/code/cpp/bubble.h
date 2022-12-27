@@ -9,14 +9,7 @@ public:
         for (std::size_t i = 0; i < v.size(); ++i)
             for (std::size_t j = i + 1; j < v.size(); ++j)
                 if (v[j] < v[i])
-                    swap(v[i], v[j]);
-    }
-
-private:
-    void swap(int &a, int &b) {
-        a ^= b;
-        b ^= a;
-        a ^= b;
+                    std::swap(v[i], v[j]);
     }
 };
 #endif // LEARNING_AREA_ALGORITHMS_CODE_CPP_BUBBLE_H_

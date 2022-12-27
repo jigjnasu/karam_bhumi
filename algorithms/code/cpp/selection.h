@@ -12,16 +12,8 @@ public:
                 if (v[j] < v[min_index])
                     min_index = j;
             }
-            if (i != min_index)
-                swap(v[i], v[min_index]);
+            std::swap(v[i], v[min_index]);
         }
-    }
-
-private:
-    void swap(int &a, int &b) {
-        a ^= b;
-        b ^= a;
-        a ^= b;
     }
 };
 #endif // LEARNING_AREA_ALGORITHMS_CODE_CPP_SELECTION_H_
