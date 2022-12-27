@@ -2,6 +2,7 @@
 #include "../../code/cpp/insertion.h"
 #include "../../code/cpp/selection.h"
 #include "../../code/cpp/merge.h"
+#include "../../code/cpp/quick.h"
 
 #include <random>
 #include <chrono>
@@ -73,6 +74,15 @@ void test_merge_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
     assert_array(v, v_sorted);
 }
 
+void test_quick_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
+    Quick q;
+    auto start = std::chrono::high_resolution_clock::now();
+    q.sort(v);
+    auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
+    std::cout << "quick sort     == " << duration.count() / 1e9 << " seconds" << std::endl;
+    assert_array(v, v_sorted);
+}
+
 int main() {
     const int n = 1e5;
     std::vector<int> v = get_random_vector(n);
@@ -91,6 +101,9 @@ int main() {
 
     std::vector<int> v4 = v;
     test_merge_sort(v4, v_sorted);
+
+    std::vector<int> v5 = v;
+    test_quick_sort(v5, v_sorted);
 
     std::cout << "---------------------------------------------------------------------------" << std::endl;
 
