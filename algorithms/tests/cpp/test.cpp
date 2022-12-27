@@ -65,9 +65,9 @@ void test_selection_sort(std::vector<int>& v, const std::vector<int> &v_sorted) 
 }
 
 void test_merge_sort(std::vector<int>& v, const std::vector<int> &v_sorted) {
-    Selection s;
+    Merge m;
     auto start = std::chrono::high_resolution_clock::now();
-    s.sort(v);
+    m.sort(v);
     auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now() - start);
     std::cout << "merge sort     == " << duration.count() / 1e9 << " seconds" << std::endl;
     assert_array(v, v_sorted);
