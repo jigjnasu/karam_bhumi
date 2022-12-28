@@ -24,9 +24,7 @@ public:
     void pop() {
         std::swap(heap[0], heap[heap.size() - 1]);
         heap.erase(heap.end() - 1, heap.end());
-        const int n = static_cast<int>(heap.size());
-        for (int i = 0; i <= (n << 1); ++i)
-            maxify(i);
+        maxify(0);
     }
 
     int size() const {
