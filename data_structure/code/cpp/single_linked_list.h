@@ -88,6 +88,17 @@ public:
         --sz;
     }
 
+    void reverse() {
+        SingleLinkedListNode *prev = nullptr, *curr = head, *next = nullptr;
+        while (curr) {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     void traverse() const {
         printf("--------------------------------------------------------------------------\n");
         SingleLinkedListNode *node = head;

@@ -60,10 +60,25 @@ void test_case_3() {
     printf("--------------------------------------------------------------------\n");
 }
 
+void test_case_4() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 4\n");
+    printf("--------------------------------------------------------------------\n");
+    SinglyLinkedList ll_a;
+    for (int i = 1; i <= 20; ++i)
+        ll_a.push_back(i);
+    ll_a.traverse();
+    ll_a.reverse();
+    ll_a.traverse();
+    printf("--------------------------------------------------------------------\n");
+}
+
+
 int main() {
     test_case_1();
     test_case_2();
     test_case_3();
+    test_case_4();
    
     return 0;
 }
