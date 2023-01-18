@@ -32,6 +32,34 @@ public:
             node->next = head;
             head = node;
         }
+        ++sz;
+    }
+
+    /*
+        element can't be inserted at the empty list
+    */
+    void insert_at(int val, int pos) {
+        if (pos < 1 || pos > sz + 1) {
+            printf("Error: can't insert item at this [%4d] location\n", pos);
+            return;
+        }
+        if (pos == 1) {
+            if (head == nullptr) {
+                head = new SingleLinkedListNode(val);
+            } else {
+                SingleLinkedListNode *node = new SingleLinkedListNode(val);
+                head->next = node;
+                head = node;
+            }
+        } else {
+            SingleLinkedListNode *node = head;
+            for (int i = 1; i < pos - 1; ++i)
+                node = node->next;
+            SingleLinkedListNode *temp = new SingleLinkedListNode(val);
+            temp->next = node->next;
+            node->next = temp;
+        }
+        ++sz;
     }
 
     void traverse() const {
