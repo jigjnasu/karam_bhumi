@@ -24,6 +24,16 @@ public:
         ++sz;
     }
 
+    void push_front(int val) {
+        if (head == nullptr) {
+            head = new SingleLinkedListNode(val);
+        } else {
+            SingleLinkedListNode *node = new SingleLinkedListNode(val);
+            node->next = head;
+            head = node;
+        }
+    }
+
     void traverse() const {
         printf("--------------------------------------------------------------------------\n");
         SingleLinkedListNode *node = head;
