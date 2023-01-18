@@ -12,6 +12,15 @@ struct SingleLinkedListNode {
 
 class SinglyLinkedList {
 public:
+    ~SinglyLinkedList() {
+        SingleLinkedListNode *node = head;
+        while (node) {
+            SingleLinkedListNode *temp = node;
+            node = node->next;
+            delete temp;
+        }
+    }
+
     void push_back(int val) {
         if (head == nullptr) {
             head = new SingleLinkedListNode(val);
