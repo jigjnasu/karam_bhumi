@@ -44,9 +44,6 @@ public:
         ++sz;
     }
 
-    /*
-        element can't be inserted at the empty list
-    */
     void insert_at(int val, int pos) {
         if (pos < 1 || pos > sz + 1) {
             printf("Error: can't insert item at this [%4d] location\n", pos);
@@ -69,6 +66,26 @@ public:
             node->next = temp;
         }
         ++sz;
+    }
+
+    void delete_at(int pos) {
+        if (pos < 1 || pos > sz) {
+            printf("Error: can't delete item at this [%4d] location\n", pos);
+            return;
+        }
+        if (pos == 1) {
+            SingleLinkedListNode *node = head;
+            head = head->next;
+            delete node;
+        } else {
+            SingleLinkedListNode *node = head;
+            for (int i = 1; i < pos - 1; ++i)
+                node = node->next;
+            SingleLinkedListNode *temp = node->next;
+            node->next = node->next->next;
+            delete temp;
+        }
+        --sz;
     }
 
     void traverse() const {

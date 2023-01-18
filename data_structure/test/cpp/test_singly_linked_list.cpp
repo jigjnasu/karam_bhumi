@@ -34,9 +34,36 @@ void test_case_2() {
     printf("--------------------------------------------------------------------\n");
 }
 
+void test_case_3() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 3\n");
+    printf("--------------------------------------------------------------------\n");
+    SinglyLinkedList ll_a;
+    for (int i = 1; i <= 20; ++i)
+        ll_a.push_back(i);
+    ll_a.traverse();
+
+    for (int i = 20; i > 1; --i)
+        ll_a.delete_at(i);
+    ll_a.traverse();
+
+    for (int i = 2; i <= 20; ++i)
+        ll_a.insert_at(i, i);
+    ll_a.traverse();
+
+    ll_a.delete_at(10);
+    ll_a.delete_at(5);
+    ll_a.delete_at(23);
+    ll_a.delete_at(0);
+    ll_a.traverse();
+
+    printf("--------------------------------------------------------------------\n");
+}
+
 int main() {
     test_case_1();
     test_case_2();
-    
+    test_case_3();
+   
     return 0;
 }
