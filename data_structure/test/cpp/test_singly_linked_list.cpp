@@ -108,6 +108,20 @@ void test_case_6() {
     printf("--------------------------------------------------------------------\n");
 }
 
+void test_case_7() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 7\n");
+    printf("--------------------------------------------------------------------\n");
+    SinglyLinkedList ll_a;
+    for (int i = 1; i <= 10; ++i)
+        ll_a.push_back(i);
+    ll_a.traverse();
+
+    ll_a.swap_nodes(2, 3);
+    ll_a.traverse();
+    printf("--------------------------------------------------------------------\n");
+}
+
 int main() {
     test_case_1();
     test_case_2();
@@ -115,6 +129,7 @@ int main() {
     test_case_4();
     test_case_5();
     test_case_6();
+    test_case_7();
    
     return 0;
 }

@@ -119,6 +119,49 @@ public:
         head = prev;
     }
 
+    void swap_nodes(int pos_a, int pos_b) {
+        if (pos_a < 1 || pos_b < 1 || pos_a > sz || pos_b > sz) {
+            printf("Error: pos a or pos b is invalid pos_a == [%4d] || pos_b == [%4d]\n", pos_a, pos_b);
+            return;
+        }
+
+        if (pos_a == pos_b) {
+            printf("Info: don't need to swap nodes as both positions are same\n");
+            return;
+        }
+
+        SingleLinkedListNode *node_a = nullptr, *node_b = nullptr;
+        if (pos_a == 1)
+            node_a = head;
+        if (pos_b == 1)
+            node_b = head;
+
+        if (node_a == nullptr) {
+            node_a = head;
+            int pos = 1;
+            while (pos < pos_a) {
+                node_a = node_a->next;
+                ++pos;
+            }
+        }
+        
+        if (node_b == nullptr) {
+            node_b = head;
+            int pos = 1;
+            while (pos < pos_b) {
+                node_b = node_b->next;
+                ++pos;
+            }
+        }
+
+        printf("node_a == [%d] || node_b == [%d]\n", node_a->data, node_b->data);
+
+        SingleLinkedListNode *temp = node_b;
+        node_b = node_a;
+        node_a = temp;
+        printf("node_a == [%d] || node_b == [%d]\n", node_a->data, node_b->data);
+    }
+
     void traverse() const {
         printf("--------------------------------------------------------------------------\n");
         SingleLinkedListNode *node = head;
