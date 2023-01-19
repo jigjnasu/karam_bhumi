@@ -85,12 +85,36 @@ void test_case_5() {
     printf("--------------------------------------------------------------------\n");
 }
 
+void test_case_6() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 6\n");
+    printf("--------------------------------------------------------------------\n");
+    SinglyLinkedList ll_a;
+    const int a = 156;
+    ll_a.push_back(1);
+    ll_a.push_back(5);
+    ll_a.push_back(6);
+
+    const int b = 2345;
+    SinglyLinkedList ll_b;
+    ll_b.push_back(2);
+    ll_b.push_back(3);
+    ll_b.push_back(4);
+    ll_b.push_back(5);
+    printf("[%d] + [%d] == [%d]\n", a, b, a + b);
+
+    SinglyLinkedList ll_c = ll_a.sum(ll_b);
+    assert(a + b == int(ll_c));
+    printf("--------------------------------------------------------------------\n");
+}
+
 int main() {
     test_case_1();
     test_case_2();
     test_case_3();
     test_case_4();
     test_case_5();
+    test_case_6();
    
     return 0;
 }

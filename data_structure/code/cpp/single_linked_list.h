@@ -98,6 +98,16 @@ public:
         --sz;
     }
 
+    SinglyLinkedList sum(SinglyLinkedList &list) {
+        const int a = int(*this);
+        const int b = int(list);
+        const std::string n = std::to_string(a + b);
+        SinglyLinkedList res;
+        for (char c : n)
+            res.push_back(c - '0');
+        return res;
+    }
+
     void reverse() {
         SingleLinkedListNode *prev = nullptr, *curr = head, *next = nullptr;
         while (curr) {
