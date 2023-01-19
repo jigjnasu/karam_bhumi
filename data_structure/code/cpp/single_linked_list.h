@@ -21,6 +21,16 @@ public:
         }
     }
 
+    operator int() {
+        int n = 0;
+        SingleLinkedListNode *node = head;
+        while (node) {
+            n = (n * 10) + node->data;
+            node = node->next;
+        }
+        return n;
+    }
+
     void push_back(int val) {
         if (head == nullptr) {
             head = new SingleLinkedListNode(val);

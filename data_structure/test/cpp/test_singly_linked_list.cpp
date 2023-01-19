@@ -73,12 +73,24 @@ void test_case_4() {
     printf("--------------------------------------------------------------------\n");
 }
 
+void test_case_5() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 5\n");
+    printf("--------------------------------------------------------------------\n");
+    SinglyLinkedList ll_a;
+    ll_a.push_back(1);
+    ll_a.push_back(5);
+    ll_a.push_back(6);
+    printf("number in the linked list == [%d]\n", int(ll_a));
+    printf("--------------------------------------------------------------------\n");
+}
 
 int main() {
     test_case_1();
     test_case_2();
     test_case_3();
     test_case_4();
+    test_case_5();
    
     return 0;
 }
