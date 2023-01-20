@@ -3,19 +3,19 @@
 
 #include <bits/stdc++.h>
 
-struct SingleLinkedListNode {
-    SingleLinkedListNode(int val) : data(val) {}
+struct SinglyLinkedListNode {
+    SinglyLinkedListNode(int val) : data(val) {}
  
-    SingleLinkedListNode* next = nullptr;
+    SinglyLinkedListNode* next = nullptr;
     int data = 0;
 };
 
 class SinglyLinkedList {
 public:
     ~SinglyLinkedList() {
-        SingleLinkedListNode *node = head;
+        SinglyLinkedListNode *node = head;
         while (node) {
-            SingleLinkedListNode *temp = node;
+            SinglyLinkedListNode *temp = node;
             node = node->next;
             delete temp;
         }
@@ -23,7 +23,7 @@ public:
 
     operator int() {
         int n = 0;
-        SingleLinkedListNode *node = head;
+        SinglyLinkedListNode *node = head;
         while (node) {
             n = (n * 10) + node->data;
             node = node->next;
@@ -33,21 +33,21 @@ public:
 
     void push_back(int val) {
         if (head == nullptr) {
-            head = new SingleLinkedListNode(val);
+            head = new SinglyLinkedListNode(val);
         } else {
-            SingleLinkedListNode *node = head;
+            SinglyLinkedListNode *node = head;
             while (node->next)
                 node = node->next;
-            node->next = new SingleLinkedListNode(val);
+            node->next = new SinglyLinkedListNode(val);
         }
         ++sz;
     }
 
     void push_front(int val) {
         if (head == nullptr) {
-            head = new SingleLinkedListNode(val);
+            head = new SinglyLinkedListNode(val);
         } else {
-            SingleLinkedListNode *node = new SingleLinkedListNode(val);
+            SinglyLinkedListNode *node = new SinglyLinkedListNode(val);
             node->next = head;
             head = node;
         }
@@ -61,17 +61,17 @@ public:
         }
         if (pos == 1) {
             if (head == nullptr) {
-                head = new SingleLinkedListNode(val);
+                head = new SinglyLinkedListNode(val);
             } else {
-                SingleLinkedListNode *node = new SingleLinkedListNode(val);
+                SinglyLinkedListNode *node = new SinglyLinkedListNode(val);
                 head->next = node;
                 head = node;
             }
         } else {
-            SingleLinkedListNode *node = head;
+            SinglyLinkedListNode *node = head;
             for (int i = 1; i < pos - 1; ++i)
                 node = node->next;
-            SingleLinkedListNode *temp = new SingleLinkedListNode(val);
+            SinglyLinkedListNode *temp = new SinglyLinkedListNode(val);
             temp->next = node->next;
             node->next = temp;
         }
@@ -84,14 +84,14 @@ public:
             return;
         }
         if (pos == 1) {
-            SingleLinkedListNode *node = head;
+            SinglyLinkedListNode *node = head;
             head = head->next;
             delete node;
         } else {
-            SingleLinkedListNode *node = head;
+            SinglyLinkedListNode *node = head;
             for (int i = 1; i < pos - 1; ++i)
                 node = node->next;
-            SingleLinkedListNode *temp = node->next;
+            SinglyLinkedListNode *temp = node->next;
             node->next = node->next->next;
             delete temp;
         }
@@ -109,7 +109,7 @@ public:
     }
 
     void reverse() {
-        SingleLinkedListNode *prev = nullptr, *curr = head, *next = nullptr;
+        SinglyLinkedListNode *prev = nullptr, *curr = head, *next = nullptr;
         while (curr) {
             next = curr->next;
             curr->next = prev;
@@ -130,7 +130,7 @@ public:
             return;
         }
 
-        SingleLinkedListNode *node_a = nullptr, *node_b = nullptr;
+        SinglyLinkedListNode *node_a = nullptr, *node_b = nullptr;
         if (pos_a == 1)
             node_a = head;
         if (pos_b == 1)
@@ -156,7 +156,7 @@ public:
 
         printf("node_a == [%d] || node_b == [%d]\n", node_a->data, node_b->data);
 
-        SingleLinkedListNode *temp = node_b;
+        SinglyLinkedListNode *temp = node_b;
         node_b = node_a;
         node_a = temp;
         printf("node_a == [%d] || node_b == [%d]\n", node_a->data, node_b->data);
@@ -164,7 +164,7 @@ public:
 
     void traverse() const {
         printf("--------------------------------------------------------------------------\n");
-        SingleLinkedListNode *node = head;
+        SinglyLinkedListNode *node = head;
         while (node) {
             printf("%d ", node->data);
             node = node->next;
@@ -177,7 +177,7 @@ public:
     }
 
 private:
-    SingleLinkedListNode *head = nullptr;
+    SinglyLinkedListNode *head = nullptr;
     int sz = 0;
 };
 
