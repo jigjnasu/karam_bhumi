@@ -6,6 +6,12 @@ void test_case_1() {
         ll_a.push_front(i);
     ll_a.traverse_from_head();
     ll_a.traverse_from_tail();
+
+    DoublyLinkedList ll_b;
+    for (int i = 1; i <= 20; ++i)
+        ll_b.push_back(i);
+    ll_b.traverse_from_head();
+    ll_b.traverse_from_tail();
 }
 
 int main() {
