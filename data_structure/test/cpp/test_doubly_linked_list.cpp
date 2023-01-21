@@ -35,10 +35,39 @@ void test_case_2() {
     ll_a.traverse_from_tail();
 }
 
+void test_case_3() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 3\n");
+    printf("--------------------------------------------------------------------\n");
+    DoublyLinkedList ll_a;
+    for (int i = 1; i <= 20; ++i)
+        ll_a.insert_at(i, i);
+    ll_a.traverse_from_head();
+    ll_a.traverse_from_tail();
+
+    ll_a.delete_at(3);
+    ll_a.delete_at(3);
+    ll_a.delete_at(3);
+    ll_a.traverse_from_head();
+    ll_a.traverse_from_tail();
+
+    ll_a.delete_at(1);
+    ll_a.delete_at(ll_a.size());
+    ll_a.traverse_from_head();
+    ll_a.traverse_from_tail();    
+
+    printf("size of doubly linked list == [%d]\n", ll_a.size());
+
+    for (int i = 1; i < 15; ++i)
+        ll_a.delete_at(i);
+    ll_a.traverse_from_head();
+    ll_a.traverse_from_tail();    
+}
 
 int main() {
     test_case_1();
     test_case_2();
+    test_case_3();
 
     return 0;
 }
