@@ -59,6 +59,33 @@ public:
         }
     }
 
+    void delete_at(int pos) {
+        if (pos < 1 || pos > sz) {
+            printf("Error: can't delete item at this [%4d] location\n", pos);
+            return;
+        }
+        if (pos == 1) {
+            DoublyLinkedListNode *node = head;
+            head = node->next;
+            head->prev = nullptr;
+            delete node;
+        } else if (pos == sz) {
+            DoublyLinkedListNode *node = tail;
+            tail = node->prev;
+            tail->next = nullptr;
+            delete node;
+        } else {
+            DoublyLinkedListNode* node = head;
+            for (int i = 1; i < pos - 1; ++i)
+                node = node->next;
+            DoublyLinkedListNode* temp = node->next;
+            node->next = node->next->next;
+            node->next->prev = node;
+            delete temp;
+        }
+        --sz;
+    }
+
     void traverse_from_head() {
         DoublyLinkedListNode *node = head;
         printf("----------------------------------------------------------\n");
