@@ -9,6 +9,9 @@ void test_case_1() {
     BST bst;
     for (int e : v)
         bst.insert(e);
+    bst.pre_order_traversal();
+    bst.in_order_traversal();
+    bst.post_order_traversal();
 }
 
 int main() {
