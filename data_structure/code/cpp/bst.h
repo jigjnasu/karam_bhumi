@@ -35,6 +35,36 @@ public:
         printf("\n--------------------------------------------------------------------\n");
     }
 
+    void bfs() {
+        printf("--------------------------------------------------------------------\n");
+        std::queue<BSTNode *> queue;
+        if (root != nullptr)
+            queue.push(root);
+        while (!queue.empty()) {
+            BSTNode *node = queue.front();
+            queue.pop();
+            printf("%d ", node->data);
+            if (node->left)
+                queue.push(node->left);
+            if (node->right)
+                queue.push(node->right);
+        }
+        printf("\n--------------------------------------------------------------------\n");
+    }
+
+    void print_by_levels() {
+        const int h = height(root);
+        std::vector<std::vector<int>> v(h);
+        get_nodes_by_levels(root, 0, v);
+        printf("--------------------------------------------------------------------\n");
+        for (std::size_t i = 0; i < v.size(); ++i) {
+            printf("level [%4d] >>> ", i + 1);
+            for (int e : v[i])
+                printf("%d ", e);
+            printf("\n");
+        }
+        printf("--------------------------------------------------------------------\n");
+    }
 
 private:
     BSTNode *root = nullptr;
@@ -72,6 +102,22 @@ private:
             post_order(root->left);
             post_order(root->right);
             printf("%d ", root->data);
+        }
+    }
+
+    int height(BSTNode *root) {
+        if (root == nullptr)
+            return 0;
+        const int left = height(root->left);
+        const int right = height(root->right);
+        return std::max(left, right) + 1;
+    }
+
+    void get_nodes_by_levels(BSTNode *root, int level, std::vector<std::vector<int>>& data) {
+        if (root) {
+            data[level].emplace_back(root->data);
+            get_nodes_by_levels(root->left, level + 1, data);
+            get_nodes_by_levels(root->right, level + 1, data);
         }
     }
 };

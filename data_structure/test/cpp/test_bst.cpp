@@ -12,6 +12,8 @@ void test_case_1() {
     bst.pre_order_traversal();
     bst.in_order_traversal();
     bst.post_order_traversal();
+    bst.bfs();
+    bst.print_by_levels();
 }
 
 int main() {
