@@ -17,6 +17,14 @@ public:
         root = insert_node(root, val);
     }
 
+    void mirror() {
+        mirror_tree(root);
+    }
+
+    bool valid_bst() {
+        return valid_tree(root);
+    }
+
     void pre_order_traversal() {
         printf("--------------------------------------------------------------------\n");
         pre_order(root);
@@ -79,6 +87,17 @@ private:
                 root->right = insert_node(root->right, val);
         }
         return root;
+    }
+
+    void mirror_tree(BSTNode *root) {
+        if (root) {
+            BSTNode *temp = root->left;
+            root->left = root->right;
+            root->right = temp;
+
+            mirror_tree(root->left);
+            mirror_tree(root->right);
+        }
     }
 
     void pre_order(BSTNode *root) {

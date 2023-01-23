@@ -16,8 +16,24 @@ void test_case_1() {
     bst.print_by_levels();
 }
 
+void test_case_2() {
+    printf("--------------------------------------------------------------------\n");
+    printf("            TEST CASE 2\n");
+    printf("--------------------------------------------------------------------\n");
+
+    std::vector<int> v = {50, 25, 75, 100, 200, 65, 15, 30, 5, 2, 1};
+    BST bst;
+    for (int e : v)
+        bst.insert(e);
+    bst.print_by_levels();
+    bst.mirror();
+    bst.print_by_levels();
+}
+
+
 int main() {
     test_case_1();
+    test_case_2();
 
     return 0;
 }
