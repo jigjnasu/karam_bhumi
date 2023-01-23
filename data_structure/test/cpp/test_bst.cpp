@@ -25,8 +25,10 @@ void test_case_2() {
     BST bst;
     for (int e : v)
         bst.insert(e);
+    printf("is bst tree valid == [%s]\n", bst.valid_bst() ? "yes" : "no");
     bst.print_by_levels();
     bst.mirror();
+    printf("is bst tree valid == [%s]\n", bst.valid_bst() ? "yes" : "no");
     bst.print_by_levels();
 }
 

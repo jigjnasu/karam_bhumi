@@ -100,6 +100,20 @@ private:
         }
     }
 
+    bool valid_tree(BSTNode *root) {
+        if (root) {
+            if (root->left)
+                if (root->left->data > root->data)
+                    return false;
+            if (root->right)
+                if (root->right->data < root->data)
+                    return false;
+            return valid_tree(root->left);
+            return valid_tree(root->right);
+        }
+        return true;
+    }
+
     void pre_order(BSTNode *root) {
         if (root) {
             printf("%d ", root->data);
